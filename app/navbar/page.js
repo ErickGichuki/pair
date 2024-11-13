@@ -33,7 +33,7 @@ export default function Navbar() {
           {/* Logo and Desktop Menu */}
           <div className="flex-1 flex items-center justify-between sm:items-stretch sm:justify-start">
             <div className="flex-shrink-0">
-              <h1 className="text-2xl font-bold">Student Pairing System</h1>
+              <h1 className="text-2xl font-bold">Erics Pairing System</h1>
             </div>
 
             {/* Desktop Menu */}

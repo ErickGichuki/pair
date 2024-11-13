@@ -1,15 +1,21 @@
 'use client';
-import React, { useState } from 'react';
-import { useRouter } from 'next/router';  // for navigation (optional)
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import axios from 'axios';
 
 const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const history = useRouter();
+  const [isClient, setIsClient] = useState(false); // To check if the component is running on the client side
+  const router = useRouter();
 
-  // Handle form submission
-  const handleSubmit = (e) => {
+  // Set client-side flag after the component mounts
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!email || !password) {
@@ -17,28 +23,40 @@ const Register = () => {
       return;
     }
 
-    // Handle form submission logic here
-    // Example: Send data to your backend or Firebase/Auth provider
+    try {
+      // Make a POST request to the relative backend registration endpoint
+      const response = await axios.post('/pair/register', {
+        email,
+        password,
+      });
 
-    // Navigate to the next page (example: Dashboard or login)
-    history.push('/dashboard');
+      if (response.status === 201) {
+        // On successful registration, navigate to login
+        router.push('/login'); 
+      }
+    } catch (err) {
+      console.error('Registration error:', err);
+      setError('There was an error with the registration. Please try again.');
+    }
   };
 
-  // Handle Google and Twitter sign-up (you can integrate with OAuth libraries like firebase/auth, auth0, etc.)
+  // Handle Google and Twitter sign-up (integration with OAuth providers)
   const handleGoogleSignUp = () => {
-    // Handle Google sign-up
     console.log('Sign up with Google');
   };
 
   const handleTwitterSignUp = () => {
-    // Handle Twitter sign-up
     console.log('Sign up with Twitter');
   };
 
+  if (!isClient) {
+    return null; // Prevent rendering of the component on the server
+  }
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="w-full max-w-md p-8 space-y-6 bg-white shadow-lg rounded-lg">
-        <h2 className="text-2xl font-bold text-center text-gray-700">Sign Up to Treact</h2>
+      <div className="w-full max-w-md p-8 space-y-6 bg-yellow-300 shadow-lg rounded-lg">
+        <h2 className="text-2xl font-bold text-center text-gray-700">Register</h2>
 
         <div className="space-y-4">
           {/* Google Sign Up Button */}
