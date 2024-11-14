@@ -12,7 +12,7 @@ export default function Navbar() {
   return (
     <nav className="bg-green-800 text-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative flex items-center justify-between h-16">
+        <div className="relative flex items-center justify-between h-24">
           {/* Mobile menu button */}
           <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
             <button
