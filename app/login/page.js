@@ -55,7 +55,7 @@ const Login = () => {
 
         {/* Right side with form */}
         <div className="flex-1 px-4 md:px-8 py-6 md:py-8">
-          <h2 className="text-3xl font-bold text-center mb-6">Welcome Back to Erics System</h2>
+          <h2 className="text-3xl font-bold text-center mb-6">Welcome Back to Erics Pairing System</h2>
           {error && <div className="text-red-500 text-center mb-4">{error}</div>}
           <form onSubmit={handleLogin}>
             <div className="mb-6">
