@@ -5,7 +5,10 @@ import axios from 'axios';
 
 const Register = () => {
   const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [isClient, setIsClient] = useState(false); // To check if the component is running on the client side
   const router = useRouter();
@@ -18,14 +21,20 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!email || !password) {
-      setError('Please enter both email and password');
+    if (password !== confirmPassword) {
+      setError('Passwords do not match');
+      return;
+    }
+
+    if (!username || !email || !password || !confirmPassword) {
+      setError('Please enter all fields');
       return;
     }
 
     try {
       // Make a POST request to the relative backend registration endpoint
-      const response = await axios.post('/pair/register', {
+      const response = await axios.post('https://students-pairing.onrender.com/pair/register/', {
+        username,
         email,
         password,
       });
@@ -39,7 +48,9 @@ const Register = () => {
       setError('There was an error with the registration. Please try again.');
     }
   };
-
+  const togglePasswordVisibility = () =>{
+    setShowPassword((prev) => !prev);
+  };
   // Handle Google and Twitter sign-up (integration with OAuth providers)
   const handleGoogleSignUp = () => {
     console.log('Sign up with Google');
@@ -111,6 +122,15 @@ const Register = () => {
           {error && <p className="text-red-500 text-sm">{error}</p>}
 
           <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            required
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+          />
+          <input
             type="email"
             name="email"
             placeholder="Email"
@@ -119,17 +139,40 @@ const Register = () => {
             onChange={(e) => setEmail(e.target.value)}
             className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
           />
-
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
+          <div className='relative'>
+            <input
+              type={showPassword ? 'text' : 'password'}
+              name="password"
+              placeholder="Password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+            />
+            <button
+            type='button'
+            onClick={togglePasswordVisibility}
+            className="absolute inset-y-0 right-3 flex items-center text-gray-600">
+              {showPassword ? 'Hide': 'Show'}
+            </button>
+          </div>
+          <div className='relative'>
+            <input
+            type={showPassword ? 'text': 'password'}
+            name="confirmPassword"
+            placeholder="Confirm Password"
             required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-          />
-
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
+            <button
+            type='button'
+            onClick={togglePasswordVisibility}
+            className="absolute inset-y-0 right-3 flex items-center text-gray-600">
+              {showPassword ? 'Hide': 'Show'}
+            </button>
+          </div>
           <button
             type="submit"
             className="w-full py-3 px-4 bg-indigo-600 text-white font-semibold rounded-md shadow-sm hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500"
