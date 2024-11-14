@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import Footer from "./footer/page";
-import Navbar from "./navbar/page";
+import Footer from "./components/footer/page";
+import Navbar from "./components/navbar/page";
 
 export default function RootLayout({ children }) {
   return (

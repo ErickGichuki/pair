@@ -29,7 +29,9 @@ const Login = () => {
         password,
       });
 
-      console.log('Login successful!', response.data);
+      // console.log('Login successful!', response.data);
+
+      localStorage.setItem('token', response.data.token);
 
       // Handle successful login
       // Example: You can save the token in localStorage or redirect to another page
