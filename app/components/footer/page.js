@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Column 1: Brand Info */}
           <div className="text-center md:text-left">
             <h3 className="text-2xl font-bold mb-4">Erics Pairing System</h3>
-            <p className="text-sm md:text-base">
+            <p className="text-md md:text-base">
               Pairing students for peer-to-peer learning. We focus on skill matching, mentorship and team projects.
             </p>
           </div>
@@ -18,7 +18,7 @@ export default function Footer() {
           <div className="text-center md:text-left">
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <div className="flex flex-col space-y-2">
-              <Link href="/" className="text-gray-300 hover:text-blue-500 transition duration-300">About</Link>
+              <Link href="/" className=" hover:text-blue-500 transition duration-300">About</Link>
               <Link href="/register" className="hover:text-blue-500 transition duration-300">Register</Link>
               <Link href="/login" className="hover:text-blue-500 transition duration-300">Login</Link>
               <Link href="/pricing" className="hover:text-blue-500 transition duration-300">Pricing</Link>
@@ -47,13 +47,13 @@ export default function Footer() {
           {/* Column 4: Contact */}
           <div className="text-center md:text-left">
             <h4 className="text-lg font-semibold mb-4">Contact</h4>
-            <p className="text-sm text-gray-400">Made with ❤️ by Erics</p>
+            <p className="text-sm ">Made with ❤️ by Erics</p>
           </div>
         </div>
 
         {/* Bottom Copyright */}
         <div className="mt-12 text-center">
-          <p className="text-sm text-gray-400">
+          <p className="text-sm ">
           &copy; {new Date().getFullYear()} Erics. All Rights Reserved.
           </p>
         </div>

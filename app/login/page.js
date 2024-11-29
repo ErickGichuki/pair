@@ -5,7 +5,7 @@ import { FaUserAlt, FaLock, FaEye, FaEyeSlash } from 'react-icons/fa';
 import axios from 'axios';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
@@ -13,35 +13,31 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    if (!email || !password) {
-      setError('Please enter both email and password');
+    if (!username || !password) {
+      setError('Please enter both username and password');
       return;
     }
 
     setError('');
     setIsLoading(true);
-    console.log('Logging in:', { email, password });
+    console.log('Logging in:', { username, password });
 
     try {
       // Send a POST request to the backend API
       const response = await axios.post('https://students-pairing.onrender.com/pair/login', {
-        email,
-        password,
+        username: username.trim(),
+        password: password.trim(),
       });
 
       // console.log('Login successful!', response.data);
+      console.log('Login response:', response.data);
+      localStorage.setItem('token', response.data.access_token);
 
-      localStorage.setItem('token', response.data.token);
-
-      // Handle successful login
-      // Example: You can save the token in localStorage or redirect to another page
-      // localStorage.setItem('token', response.data.token);
-      // Redirect user to dashboard or another page
-      window.location.href = '/dashboard'; // Example redirection
+      window.location.href = '/';
 
     } catch (error) {
       console.error('Login failed:', error.response?.data || error.message);
-      setError('Invalid email or password');
+      setError('Invalid username or password');
     } finally {
       setIsLoading(false);
     }
@@ -64,14 +60,14 @@ const Login = () => {
               <label className="block text-gray-700 font-semibold mb-2" htmlFor="email">
                 <div className="flex items-center space-x-2">
                   <FaUserAlt className="text-gray-400" />
-                  <span>Email</span>
+                  <span>Username</span>
                 </div>
               </label>
               <input
-                type="email"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                type="text"
+                id="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:border-blue-500 bg-gray-100"
                 required
               />
