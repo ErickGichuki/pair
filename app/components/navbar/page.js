@@ -43,10 +43,10 @@ export default function Navbar() {
               {/* Home link and Search box */}
               <div className="flex items-center space-x-8">
                 <Link href="/" className="text-gray-300 hover:text-white px-4 py-2 rounded-md text-sm font-medium">Home</Link>
-                <input
+                {/* <input
                   placeholder="Search"
                   className="w-72 rounded-xl p-2 bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
-                />
+                /> */}
                 <Link href="/about" className="text-gray-300 hover:text-white px-4 py-2 rounded-md text-sm font-medium">About</Link>
               </div>
 
@@ -69,10 +69,10 @@ export default function Navbar() {
           <Link href="/login" onClick={closeMenu} className="text-gray-300 hover:text-white px-4 py-2 rounded-md text-sm font-medium">Login</Link>
           <Link href="/register" onClick={closeMenu} className="text-gray-300 hover:text-white px-4 py-2 rounded-md text-sm font-medium">Register</Link>
           <Link href="/analytics" onClick={closeMenu} className="text-gray-300 hover:text-white px-4 py-2 rounded-md text-sm font-medium">Pairing Analytics</Link>
-          <input
+          {/* <input
             placeholder="Search"
             className="w-full mt-4 rounded-xl p-2 bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
-          />
+          /> */}
         </div>
       </div>
     </nav>

@@ -3,31 +3,31 @@ import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-green-800 text-white py-12">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {/* Column 1: Brand Info */}
           <div className="text-center md:text-left">
-            <h3 className="text-2xl font-bold mb-4 text-indigo-500">Erics</h3>
-            <p className="text-sm md:text-base text-gray-400">
-              Pairing students for peer-to-peer learning.
+            <h3 className="text-2xl font-bold mb-4">Erics Pairing System</h3>
+            <p className="text-sm md:text-base">
+              Pairing students for peer-to-peer learning. We focus on skill matching, mentorship and team projects.
             </p>
           </div>
 
           {/* Column 2: Quick Links */}
           <div className="text-center md:text-left">
-            <h4 className="text-lg font-semibold mb-4 text-indigo-500">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <div className="flex flex-col space-y-2">
-              <Link href="/" className="text-gray-300 hover:text-indigo-500 transition duration-300">About</Link>
-              <Link href="/register" className="text-gray-300 hover:text-indigo-500 transition duration-300">Register</Link>
-              <Link href="/login" className="text-gray-300 hover:text-indigo-500 transition duration-300">Login</Link>
-              <Link href="/pricing" className="text-gray-300 hover:text-indigo-500 transition duration-300">Pricing</Link>
+              <Link href="/" className="text-gray-300 hover:text-blue-500 transition duration-300">About</Link>
+              <Link href="/register" className="hover:text-blue-500 transition duration-300">Register</Link>
+              <Link href="/login" className="hover:text-blue-500 transition duration-300">Login</Link>
+              <Link href="/pricing" className="hover:text-blue-500 transition duration-300">Pricing</Link>
             </div>
           </div>
 
           {/* Column 3: Follow Us */}
           <div className="text-center md:text-left">
-            <h4 className="text-lg font-semibold mb-4 text-indigo-500">Follow Us</h4>
+            <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
             <div className="flex justify-center md:justify-start space-x-6">
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-indigo-500 transition duration-300">
                 <FaFacebook size={24} />
@@ -46,7 +46,7 @@ export default function Footer() {
 
           {/* Column 4: Contact */}
           <div className="text-center md:text-left">
-            <h4 className="text-lg font-semibold mb-4 text-indigo-500">Contact</h4>
+            <h4 className="text-lg font-semibold mb-4">Contact</h4>
             <p className="text-sm text-gray-400">Made with ❤️ by Erics</p>
           </div>
         </div>
