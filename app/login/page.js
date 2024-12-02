@@ -29,8 +29,6 @@ const Login = () => {
         password: password.trim(),
       });
 
-      // console.log('Login successful!', response.data);
-      console.log('Login response:', response.data);
       localStorage.setItem('token', response.data.access_token);
 
       window.location.href = '/';
