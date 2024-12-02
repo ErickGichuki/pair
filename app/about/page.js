@@ -1,16 +1,43 @@
-import React from 'react'
+'use client'
+import React, { useState, useEffect} from 'react'
 import { FaHandshake, FaUsers, FaProjectDiagram, FaBolt, FaUserShield, FaTools, FaInfoCircle, FaHome } from 'react-icons/fa'
 
 function page() {
+  const [text, setText] = useState('');
+  const [color, setColor] = useState('text-yellow-700');
+  const fullText = 'Empowering students through meaningful pairing and collaboration.'
+
+  useEffect(() =>{
+    let index = 0;
+    const intervalId = setInterval(() => {
+      if (index < fullText.length) {
+        const currentChar = fullText[index];
+        if (currentChar) {
+          setText((prevText) => prevText + currentChar);
+        }
+        if (index < fullText.length / 3) {
+          setColor('text-yellow-700');
+        } else if (index < (2 * fullText.length) / 3){
+          setColor('text-green-700')
+        } else {
+          setColor('text-yellow-600')
+        }
+        index += 1;
+      } else{
+        clearInterval(intervalId);
+      }
+    }, 100);
+    return () => clearInterval(intervalId);
+  }, []);
   return (
     <div className='py-10 px-4'>
       <div className='mb-10'>
       <div className='flex items-center space-x-4'>
-          <FaHome className='text-blue-500 text-3xl hover:text-blue-700' /> 
+          <FaHome className='text-blue-500 text-3xl hover:text-blue-700' />
           <h2 className='font-bold text-xl text-left'>About us!</h2>
         </div>
-        <p className='mt-2 text-lg text-center text-gray-600'>
-          Empowering students through meaningful pairing and collaboration.
+        <p className={`mt-2 text-lg text-center  ${color}`}>
+          {text}
         </p>
       </div>
       <div className='mb-16'>
