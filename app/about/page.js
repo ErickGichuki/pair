@@ -6,7 +6,7 @@ function page() {
     <div className='py-10 px-4'>
       <div className='mb-10'>
       <div className='flex items-center space-x-4'>
-          <FaHome className='text-blue-500 text-3xl hover:text-blue-700' />
+          <FaHome className='text-blue-500 text-3xl hover:text-blue-700' /> //add icon
           <h2 className='font-bold text-xl text-left'>About us!</h2>
         </div>
         <p className='mt-2 text-lg text-center text-gray-600'>
