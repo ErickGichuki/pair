@@ -14,7 +14,7 @@ function Hero() {
             Pairing students manually is time-consuming and prone to duplication. Our system automates the pairing process, ensuring students are paired weekly based on their performance, strengths, and weaknesses.
           </p>
           <a
-            href="#get-started"
+            href="https://students-pairing.onrender.com/pair/register/"
             className="bg-blue-800 hover:bg-blue-700 font-semibold py-3 px-6 sm:py-4 sm:px-9 text-white rounded-full text-lg"
           >
             Get Started
