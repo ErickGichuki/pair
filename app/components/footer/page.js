@@ -18,10 +18,10 @@ export default function Footer() {
           <div className="text-center md:text-left">
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <div className="flex flex-col space-y-2">
-              <Link href="/" className=" hover:text-blue-500 transition duration-300">About</Link>
+              <Link href="/about" className=" hover:text-blue-500 transition duration-300">About</Link>
               <Link href="/register" className="hover:text-blue-500 transition duration-300">Register</Link>
               <Link href="/login" className="hover:text-blue-500 transition duration-300">Login</Link>
-              <Link href="/pricing" className="hover:text-blue-500 transition duration-300">Pricing</Link>
+              <Link href="/analytics" className="hover:text-blue-500 transition duration-300">Analytics</Link>
             </div>
           </div>
 
