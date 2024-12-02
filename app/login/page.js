@@ -24,7 +24,7 @@ const Login = () => {
 
     try {
       // Send a POST request to the backend API
-      const response = await axios.post('https://students-pairing.onrender.com/pair/login', {
+      const response = await axios.post('https://students-pairing.onrender.com/pair/login/', {
         username: username.trim(),
         password: password.trim(),
       });
