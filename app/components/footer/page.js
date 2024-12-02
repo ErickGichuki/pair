@@ -29,16 +29,16 @@ export default function Footer() {
           <div className="text-center md:text-left">
             <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
             <div className="flex justify-center md:justify-start space-x-6">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-indigo-500 transition duration-300">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-400 transition duration-300">
                 <FaFacebook size={24} />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-indigo-500 transition duration-300">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-400 transition duration-300">
                 <FaTwitter size={24} />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-indigo-500 transition duration-300">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-400 transition duration-300">
                 <FaInstagram size={24} />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-indigo-500 transition duration-300">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-400 transition duration-300">
                 <FaLinkedin size={24} />
               </a>
             </div>
@@ -47,7 +47,9 @@ export default function Footer() {
           {/* Column 4: Contact */}
           <div className="text-center md:text-left">
             <h4 className="text-lg font-semibold mb-4">Contact</h4>
-            <p className="text-sm ">Made with ❤️ by Erics</p>
+            <p className="mt-4 text-sm ">Made with ❤️ by Erics</p>
+            <p className="mt-4 text-sm">Email</p>
+            <p className="mt-4 text-sm">Office Hours: Mon - Fri, 9AM - 6 PM</p>
           </div>
         </div>
 
